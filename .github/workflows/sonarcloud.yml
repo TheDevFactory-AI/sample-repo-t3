@@ -24,9 +24,10 @@ jobs:
           pip install -r requirements.txt  # Adjust based on your project structure
 
       - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@v1
+        uses: sonarsource/sonarcloud-github-action@master
         with:
-          projectKey: TheDevFactory-AI_sqtest-omega
-          organization: thedevfactory-ai
-          token: ${{ddd12e04e9f9a996cbe5021b8b903a01fbbd04e4}}
-          
+          entryPoint: 'sonar-scanner'
+          args: |
+            -Dsonar.organization=thedevfactory-ai
+            -Dsonar.projectKey=16232
+            -Dsonar.sources=.
